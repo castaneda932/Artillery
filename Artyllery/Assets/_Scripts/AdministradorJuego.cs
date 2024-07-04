@@ -7,7 +7,7 @@ public class AdministradorJuego : MonoBehaviour
 {
 
     public static AdministradorJuego SingletonAdministardorJuego;
-    public static int VelocidadBola = 50;
+    public static int VelocidadBola = 60;
     public static int DisparosPorJuego = 10;
     public static float VelocidadRotacion = 2;
 
