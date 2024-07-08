@@ -6,15 +6,24 @@ public class Cañon : MonoBehaviour
 {
     public static bool Bloqueado;
 
+    public AudioClip ClipDisparo;
+    public GameObject SonidoDisparo;
+    private AudioSource SourceDisparo;
+
     [SerializeField] private GameObject BalaPrefab;
     public GameObject particulasDisparo;
     private GameObject puntaCanon;
     private float rotacion;
     public int disparosRealizados = 0;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
         puntaCanon =  transform.Find("PuntaCanon").gameObject;
+        SonidoDisparo = GameObject.Find("SonidoDisparo");
+        SourceDisparo = SonidoDisparo.GetComponent<AudioSource>();
        
     }
 
@@ -40,9 +49,19 @@ public class Cañon : MonoBehaviour
             SeguirCamara.objetivo = temp;
             Vector3 direccionDisparo = transform.rotation.eulerAngles; // se creo un vector de disparo
             direccionDisparo.y = 90 - direccionDisparo.x;
-            Vector3 direccionParticulas = new Vector3(-90 + direccionDisparo.x, 90, 0);
-            GameObject Particulas = Instantiate(particulasDisparo, puntaCanon.transform.position, Quaternion.Euler(direccionDisparo), transform);
+
+            //VFX
+            Vector3 direccionParticulas = new Vector3 (90.0f + transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
+            GameObject Particulas = Instantiate(particulasDisparo, puntaCanon.transform.position, Quaternion.Euler(direccionParticulas));
+
+
+
+
             tempRB.velocity = direccionDisparo.normalized * AdministradorJuego.VelocidadBola;
+            SourceDisparo.Play();
+
+
+
             
             disparosRealizados++;
             Bloqueado = true;
