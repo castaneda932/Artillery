@@ -65,7 +65,9 @@ public class Cañon : MonoBehaviour
 
     private void Disparar(InputAction.CallbackContext context)
     {
-        GameObject temp = Instantiate(BalaPrefab, puntaCanon.transform.position, transform.rotation);// se instancia la bala con en la posicion y rotacion de punta canon
+        if (Bloqueado == false && AdministradorJuego.DisparosPorJuego > 0)
+        { 
+            GameObject temp = Instantiate(BalaPrefab, puntaCanon.transform.position, transform.rotation);// se instancia la bala con en la posicion y rotacion de punta canon
 
         Rigidbody tempRB = temp.GetComponent<Rigidbody>();
         SeguirCamara.objetivo = temp;
@@ -83,6 +85,7 @@ public class Cañon : MonoBehaviour
         Bloqueado = true;
 
         disparosRealizados++;
+        }
 
         if (disparosRealizados >= AdministradorJuego.DisparosPorJuego)
         {
