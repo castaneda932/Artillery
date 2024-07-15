@@ -1,18 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Bola : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public GameObject particulasExplosionn;
+
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.gameObject.tag == "Suelo")
+        {
+            Invoke("Explotar", 3);
+        }
+
+        if (collision.gameObject.tag == "Obstaculo" || collision.gameObject.tag == "Obstaculo") Explotar();
+
+
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void Explotar()
     {
-        
+        GameObject particulas = Instantiate(particulasExplosionn, transform.position, Quaternion.identity) as GameObject;
+        Cañon.Bloqueado = false;
+        SeguirCamara.objetivo = null;
+        Destroy(this.gameObject);
+
     }
 }

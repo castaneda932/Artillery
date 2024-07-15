@@ -8,6 +8,7 @@ TagManager:
   - Suelo
   - Obstaculo
   - Castillo
+  - Explosion
   layers:
   - Default
   - TransparentFX
