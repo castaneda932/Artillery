@@ -69,28 +69,32 @@ public class Cañon : MonoBehaviour
         { 
             GameObject temp = Instantiate(BalaPrefab, puntaCanon.transform.position, transform.rotation);// se instancia la bala con en la posicion y rotacion de punta canon
 
-        Rigidbody tempRB = temp.GetComponent<Rigidbody>();
-        SeguirCamara.objetivo = temp;
-        Vector3 direccionDisparo = transform.rotation.eulerAngles; // se creo un vector de disparo
-        direccionDisparo.y = 90 - direccionDisparo.x;
+            Rigidbody tempRB = temp.GetComponent<Rigidbody>();
+            SeguirCamara.objetivo = temp;
+            Vector3 direccionDisparo = transform.rotation.eulerAngles; // se creo un vector de disparo
+            direccionDisparo.y = 90 - direccionDisparo.x;
 
-        //VFX
-        Vector3 direccionParticulas = new Vector3(90.0f + transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
-        GameObject Particulas = Instantiate(particulasDisparo, puntaCanon.transform.position, Quaternion.Euler(direccionParticulas));
+             //VFX
+            Vector3 direccionParticulas = new Vector3(90.0f + transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, 0);
+            GameObject Particulas = Instantiate(particulasDisparo, puntaCanon.transform.position, Quaternion.Euler(direccionParticulas));
 
 
-        tempRB.velocity = direccionDisparo.normalized * AdministradorJuego.VelocidadBola;
-        SourceDisparo.Play();
+            tempRB.velocity = direccionDisparo.normalized * AdministradorJuego.VelocidadBola;
 
-        Bloqueado = true;
+            AdministradorJuego.DisparosPorJuego--;
 
-        disparosRealizados++;
+            SourceDisparo.Play();
+ 
+            Bloqueado = true;
+
+            
+            
         }
 
-        if (disparosRealizados >= AdministradorJuego.DisparosPorJuego)
-        {
+        //if (disparosRealizados >= AdministradorJuego.DisparosPorJuego)
+        //{
 
-            Destroy(this);
-        }
+        //    Destroy(this);
+        //}
     }
 }
