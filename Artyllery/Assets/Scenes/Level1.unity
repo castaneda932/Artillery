@@ -944,7 +944,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &267738138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1179,8 +1179,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6586844498167778328, guid: a201a13aa3914d74d9f6532fbfbc3f79,
         type: 3}
-      propertyPath: m_LocalScale.y
-      value: 50.211002
+      propertyPath: m_LocalScale.z
+      value: 1.2258236
       objectReference: {fileID: 0}
     - target: {fileID: 6586844498167778328, guid: a201a13aa3914d74d9f6532fbfbc3f79,
         type: 3}
@@ -1190,12 +1190,12 @@ PrefabInstance:
     - target: {fileID: 6586844498167778328, guid: a201a13aa3914d74d9f6532fbfbc3f79,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -47.447216
+      value: -46.4
       objectReference: {fileID: 0}
     - target: {fileID: 6586844498167778328, guid: a201a13aa3914d74d9f6532fbfbc3f79,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6586844498167778328, guid: a201a13aa3914d74d9f6532fbfbc3f79,
         type: 3}
@@ -2574,6 +2574,7 @@ GameObject:
   m_Component:
   - component: {fileID: 694187394}
   - component: {fileID: 694187395}
+  - component: {fileID: 694187396}
   m_Layer: 5
   m_Name: Slider fuerza
   m_TagString: Untagged
@@ -2655,6 +2656,20 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &694187396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694187393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55a617493b2718749838f411ebcbbfad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  opciones: {fileID: 1720659751}
+  fuerza: 0
 --- !u!1 &778127308
 GameObject:
   m_ObjectHideFlags: 0
@@ -5051,7 +5066,7 @@ RectTransform:
   m_Father: {fileID: 2093082943}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5831,7 +5846,7 @@ RectTransform:
   m_Father: {fileID: 51657070}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

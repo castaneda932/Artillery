@@ -7,7 +7,7 @@ public class AdministradorJuego : MonoBehaviour
 {
 
     public static AdministradorJuego SingletonAdministardorJuego;
-    public static int VelocidadBola = 60;
+    public static float VelocidadBola;
     public static int DisparosPorJuego = 3;
     public static float VelocidadRotacion = .5f;
 
@@ -41,5 +41,10 @@ public class AdministradorJuego : MonoBehaviour
     public void PerderJuego()
     {
         canvasPerder.SetActive(true);
+    }
+
+    public void cambiarVelocidadBola(float nuevaVelocidad)
+    {
+        VelocidadBola = nuevaVelocidad;
     }
 }
