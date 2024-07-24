@@ -17,6 +17,7 @@ public class MenuPausa : MonoBehaviour
     public void OcultarMenuPausa()
     {
         menuPausa.SetActive(false);
+        menuOpciones.SetActive(true);
     }
 
     public void RegresarAPantallaPrincipal()

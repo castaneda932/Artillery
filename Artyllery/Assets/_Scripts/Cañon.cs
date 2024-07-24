@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Cañon : MonoBehaviour
 {
@@ -22,9 +23,12 @@ public class Cañon : MonoBehaviour
     private InputAction modificarFuerza;
     private InputAction disparar;
 
+    public Slider sliderFuerza;
+
     private void Awake()
     {
         canonControls = new CanonControlls();
+        AdministradorJuego.VelocidadBola = 0.3f;
     }
 
     private void OnEnable()
@@ -37,6 +41,7 @@ public class Cañon : MonoBehaviour
         disparar.Enable();
 
         disparar.performed += Disparar;
+        modificarFuerza.performed += ModificarFuerzaSlider;
 
     }
 
@@ -48,6 +53,17 @@ public class Cañon : MonoBehaviour
         SonidoDisparo = GameObject.Find("SonidoDisparo");
         SourceDisparo = SonidoDisparo.GetComponent<AudioSource>();
        
+    }
+
+    void ModificarFuerzaSlider(InputAction.CallbackContext context)
+    {
+        //dar valor a velocidadBola segun nuestro slider
+        AdministradorJuego.VelocidadBola += context.ReadValue<float>();
+        //limitar valores
+        if (AdministradorJuego.VelocidadBola > 100) AdministradorJuego.VelocidadBola = 100;
+        else if (AdministradorJuego.VelocidadBola < 0.3f) AdministradorJuego.VelocidadBola = 0.3f;
+        //ajustar valor visual en slider
+        sliderFuerza.value = AdministradorJuego.VelocidadBola;
     }
 
     // Update is called once per frame
