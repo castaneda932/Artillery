@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AdministradorJuego : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class AdministradorJuego : MonoBehaviour
 
     public GameObject canvasGanar;
     public GameObject canvasPerder;
+    public GameObject menuCanvasGameOver;
+    
 
     private void Awake()
     {
@@ -41,10 +44,26 @@ public class AdministradorJuego : MonoBehaviour
     public void PerderJuego()
     {
         canvasPerder.SetActive(true);
+        menuCanvasGameOver.SetActive(true);
     }
+    public void ReintentarNivel()
+    {
+        canvasPerder.SetActive(false);
+        menuCanvasGameOver.SetActive(false);
 
+        DisparosPorJuego = 3;
+
+
+    }
     public void cambiarVelocidadBola(float nuevaVelocidad)
     {
         VelocidadBola = nuevaVelocidad;
     }
+
+    public void SiguienteNivel()
+    {
+        SceneManager.LoadScene(2);
+    }
+    
+    
 }
